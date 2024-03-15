@@ -1,6 +1,6 @@
 package com.example.auth.infra.security;
 
-import com.example.auth.repositories.UserRepository;
+import com.example.auth.domain.repositories.UserRepository;
 import com.example.auth.services.TokenService;
 import jakarta.servlet.FilterChain;
 import jakarta.servlet.ServletException;

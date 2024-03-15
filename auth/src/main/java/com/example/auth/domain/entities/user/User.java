@@ -1,4 +1,4 @@
-package com.example.auth.domain.user;
+package com.example.auth.domain.entities.user;
 
 import jakarta.persistence.*;
 import lombok.*;
@@ -23,6 +23,7 @@ public class User implements UserDetails {
     private Long id;
     private String email;
     private String password;
+    @Enumerated(value = EnumType.STRING)
     private UserRole role;
 
     public User(String email, String password, UserRole role){
@@ -36,6 +37,11 @@ public class User implements UserDetails {
         if (this.role == UserRole.ADMIN)
             return List.of(new SimpleGrantedAuthority("ROLE_ADMIN"), new SimpleGrantedAuthority("ROLE_USER"));
         else return List.of(new SimpleGrantedAuthority("ROLE_USER"));
+    }
+
+    @Override
+    public String getPassword() {
+        return password;
     }
 
     @Override
