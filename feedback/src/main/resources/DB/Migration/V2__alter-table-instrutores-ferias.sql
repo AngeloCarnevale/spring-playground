@@ -1,0 +1,1 @@
+alter table instrutor add column ferias bit not null;
